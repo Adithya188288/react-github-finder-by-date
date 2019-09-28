@@ -4,28 +4,23 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { Button, Container } from "react-bootstrap"
 import "./Search.css"
+import { subDays, addDays } from "date-fns/esm"
 
 //Funtional Component - Does not contain state, only receive props
 const Search = props => {
   return (
     <div className=" center">
       <Container>
-        {/* <DatePicker
-          onChange={props.onChangeDate}
-          value={props.date}
-          clearIcon={null}
-          calendarIcon={null}
-          format="y-MM-dd"
-          maxDate={new Date()}
-          minDate={new Date("2008-01-12")}
-        /> */}
         <DatePicker
           onChange={props.onChangeDate}
           selected={props.date}
           dateFormat="yyyy/MM/dd"
-          endDate={new Date()}
-          minDate={new Date("2008-01-12")}
-          withPortal
+          minDate={subDays(props.date, props.getNoOfDaysFromToday(props.date))}
+          maxDate={addDays(new Date(), 0)}
+          showMonthDropdown
+          showYearDropdown
+          dropdownMode="select"
+          placeholderText="Select a date"
         />
         <Button
           variant="success"

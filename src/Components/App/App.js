@@ -43,6 +43,20 @@ class App extends React.Component {
     return dateInState.toJSON().slice(0, 10)
   }
 
+  //find the No of days between 2 dates
+  getNoOfDaysFromToday = todaysDate => {
+    var date1 = new Date("2008-01-12")
+    var date2 = todaysDate
+
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime()
+
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24)
+
+    return Difference_In_Days
+  }
+
   render() {
     const { users, date } = this.state
     return (
@@ -62,6 +76,7 @@ class App extends React.Component {
           date={date}
           onChangeDate={this.onChangeDate}
           onSearchUsers={this.onSearchUsers}
+          getNoOfDaysFromToday={this.getNoOfDaysFromToday}
         />
         <CardList users={users} />
       </Fragment>
