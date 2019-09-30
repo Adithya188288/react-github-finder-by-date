@@ -1,3 +1,9 @@
 .m2 {
-  margin: 40px 0;
+  margin: 40px 20px 40px 0px;
+}
+
+/* Row componet is a flex container*/
+/* center all flex items */
+.justify-content {
+  justify-content: center;
 }

@@ -13,10 +13,10 @@ CardList.propTypes = {
 function CardList({ users }) {
   return (
     <Container>
-      <Row>
+      <Row className="justify-content">
         {users.map((e, i) => {
           return (
-            <Col key={i} className="m2">
+            <Col key={i} className="m2" lg="auto" md="auto" sm="auto" xs="auto">
               <CardItem usersInfo={users[i]} />
             </Col>
           )
