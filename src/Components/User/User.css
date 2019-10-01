@@ -1,0 +1,34 @@
+.custom-width {
+  width: 250px;
+}
+
+.custom-flex2 {
+  display: flex;
+  justify-content: center;
+}
+
+.back {
+  text-align: center;
+  margin: 25px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.custom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+@media (max-width: 500px) {
+  .custom-flex {
+    flex-direction: column;
+  }
+
+  .details {
+    margin-bottom: 20px;
+  }
+}

@@ -1,9 +1,12 @@
 import React, { Fragment } from "react"
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Navbar } from "react-bootstrap"
 import Search from "../Search/Search"
+import Navbar from "../Navbar/Navbar"
+import User from "../User/User"
+import About from "../About/About"
 import CardList from "../CardList/CardList"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 //Note: App states are stored in App.js and sent as a props to the child elements
 class App extends React.Component {
@@ -60,26 +63,33 @@ class App extends React.Component {
   render() {
     const { users, date } = this.state
     return (
-      <Fragment>
-        <Navbar
-          style={{ justifyContent: "center" }}
-          bg="dark"
-          expand="sm"
-          variant="dark"
-        >
-          <Navbar.Brand>Github Finder By Date</Navbar.Brand>
-        </Navbar>
-        <p className="text-center margin-top font-size">
-          Select a date from 2008-01-12 till date
-        </p>
-        <Search
-          date={date}
-          onChangeDate={this.onChangeDate}
-          onSearchUsers={this.onSearchUsers}
-          getNoOfDaysFromToday={this.getNoOfDaysFromToday}
-        />
-        <CardList users={users} />
-      </Fragment>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <Fragment>
+                  <p className="text-center margin-top font-size">
+                    Select a date from 2008-01-12 till date
+                  </p>
+                  <Search
+                    date={date}
+                    onChangeDate={this.onChangeDate}
+                    onSearchUsers={this.onSearchUsers}
+                    getNoOfDaysFromToday={this.getNoOfDaysFromToday}
+                  />
+                  <CardList users={users} />
+                </Fragment>
+              )}
+            />
+            <Route path="/about" exact component={About} />
+            <Route path="/user/:id" exact component={User} />
+          </Switch>
+        </Fragment>
+      </Router>
     )
   }
 }

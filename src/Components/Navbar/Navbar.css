@@ -1,0 +1,28 @@
+/* Set space between for Nav bar */
+.justify-content-nav {
+  justify-content: space-between;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.white {
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+@media (max-width: 575px) {
+  .nav-flex-sm {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 370px) {
+  .justify-content-nav {
+    justify-content: center;
+  }
+}

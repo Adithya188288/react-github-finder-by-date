@@ -1,0 +1,9 @@
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.m {
+  margin: 40px 20px;
+}

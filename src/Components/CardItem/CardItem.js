@@ -1,6 +1,8 @@
 import React, { Fragment } from "react"
-import { Card, Button } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
+import "./CardItem.css"
 
 //proptype - denote what type of props this component will recieve.
 // It will shows us a warning if we pass some other prop-type
@@ -9,6 +11,7 @@ CardItem.propTypes = {
 }
 
 function CardItem({ usersInfo }) {
+  // console.log(usersInfo)
   return (
     <Fragment>
       <Card style={{ width: "18rem" }}>
@@ -16,12 +19,7 @@ function CardItem({ usersInfo }) {
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{usersInfo.login}</Card.Title>
           <Card.Text>User Score - {usersInfo.score}</Card.Text>
-          <Button
-            variant="primary" //opens the user github profile in a new window
-            onClick={() => window.open(usersInfo.html_url)}
-          >
-            Open Profile
-          </Button>
+          <Link to={`/user/${usersInfo.login}`}>View</Link>
         </Card.Body>
       </Card>
     </Fragment>
