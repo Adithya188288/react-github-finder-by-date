@@ -19,7 +19,9 @@ function CardItem({ usersInfo }) {
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{usersInfo.login}</Card.Title>
           <Card.Text>User Score - {usersInfo.score}</Card.Text>
-          <Link to={`/user/${usersInfo.login}`}>View</Link>
+          <Link to={`/user/${usersInfo.login}`} style={{ color: "blue" }}>
+            View
+          </Link>
         </Card.Body>
       </Card>
     </Fragment>

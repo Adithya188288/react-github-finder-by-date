@@ -1,16 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
+import { dateContext } from "../App/App"
 import CardItem from "../CardItem/CardItem"
 import "./CardList.css"
-import PropTypes from "prop-types"
 import { Container, Row, Col } from "react-bootstrap"
 
-//proptype - denote what type of props this component will recieve.
-// It will shows us a warning if we pass some other prop-type
-CardList.propTypes = {
-  users: PropTypes.array.isRequired
-}
+//Receiving data using Context Api
 
-function CardList({ users }) {
+function CardList() {
+  let { users } = useContext(dateContext)
   return (
     <Container>
       <Row className="justify-content">
