@@ -11,7 +11,8 @@ function About() {
       </p>
       <p>
         Technologies used - React, React Router, Github API, Continious
-        Deployment, Netlify , Github
+        Deployment, Netlify , Github, React Class Based Component, React
+        Fucntional Based Component, React Hooks
       </p>
     </div>
   )
